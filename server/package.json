@@ -6,7 +6,8 @@
     "dev": "nodemon ./src/index.ts",
     "test": "jest",
     "build": "yarn tsc --project tsconfig.build.json",
-    "lint": "yarn eslint ."
+    "lint": "yarn eslint .",
+    "format": "yarn prettier . --write"
   },
   "author": "Umberto Fontanazza",
   "license": "ISC",
