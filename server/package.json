@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon ./src/index.ts",
     "test": "jest",
-    "build": "yarn tsc"
+    "build": "yarn tsc --project tsconfig.build.json"
   },
   "author": "Umberto Fontanazza",
   "license": "ISC",
