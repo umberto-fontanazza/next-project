@@ -4,18 +4,16 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: ["main"]
   pull_request:
     branches: ["main"]
 
 jobs:
-  build:
+  apply-checks:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [18.x] #, 20.x, 22.x]
+        node-version: [20.x] # let's save runners some work for now [18.x , 20.x, 22.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -26,11 +24,15 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
           cache-dependency-path: server/package-lock.json
-      - run: npm ci
+      - name: npm install for ci
+        run: npm ci
         working-directory: server
-      - run: npm run lint-check
+      - name: check formatting
+        run: npm run format-check
         working-directory: server
-      - run: npm run format-check
+      - name: check linting
+        run: npm run lint-check
         working-directory: server
-      - run: npm test
+      - name: run tests
+        run: npm test
         working-directory: server
