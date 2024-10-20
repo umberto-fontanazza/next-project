@@ -7,6 +7,7 @@
     "test": "jest",
     "build": "npx tsc --project tsconfig.build.json",
     "lint": "npx eslint . --max-warnings 0 --report-unused-disable-directives",
+    "lint-check": "npx eslint . --max-warnings 0",
     "format": "npx prettier . --write",
     "format-check": "npx prettier . --check"
   },
