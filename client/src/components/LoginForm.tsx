@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import { Form, Button, Card, Container, Row, Col } from "react-bootstrap";
 import { Credentials } from "../utils/interfaces";
+import "../styles/LoginForm.css";
 
 interface LoginFormProps {
   login: (credentials: Credentials) => void;
@@ -27,7 +28,7 @@ const LoginForm: FC<LoginFormProps> = (props): JSX.Element => {
       fluid
       className="vh-100 d-flex justify-content-center align-items-center"
     >
-      <Row className="justify-content-center">
+      <Row className="justify-content-center custom-row" xl={10}>
         <Col>
           <Card className="p-4 bg-dark text-white shadow-lg">
             <Card.Body>
@@ -55,16 +56,22 @@ const LoginForm: FC<LoginFormProps> = (props): JSX.Element => {
                   />
                 </Form.Group>
 
-                <Button type="submit" className="w-100 btn-orange">
-                  {" "}
-                  Login
-                </Button>
-                <Button
-                  className="btn btn-danger w-100 mt-2"
-                  onClick={handleCancel}
-                >
-                  Cancel
-                </Button>
+                <Row>
+                  <Col>
+                    <Button type="submit" className="w-100 mt-2">
+                      {" "}
+                      Login
+                    </Button>
+                  </Col>
+                  <Col>
+                    <Button
+                      className="btn btn-danger w-100 mt-2"
+                      onClick={handleCancel}
+                    >
+                      Cancel
+                    </Button>
+                  </Col>
+                </Row>
               </Form>
             </Card.Body>
           </Card>

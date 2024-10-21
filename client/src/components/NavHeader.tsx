@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import { Navbar, Container, Button } from "react-bootstrap";
 
 interface NavHeaderProps {
   logout: () => void;

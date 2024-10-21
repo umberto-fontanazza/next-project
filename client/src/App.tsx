@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import LoginForm from "./components/LoginForm";
 import NavHeader from "./components/NavHeader";
+import NotFound from "./components/NotFound";
 import API from "./API/API";
 
 function App() {
@@ -42,6 +43,9 @@ function App() {
 
         {/* Route /login for the Home page with the form to perform the login */}
         <Route path="/login" element={<LoginForm login={handleLogin} />} />
+
+        {/* Route /* to cath all bad urls */}
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );
